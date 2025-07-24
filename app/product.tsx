@@ -23,7 +23,6 @@ export default function Product() {
             .then(response => response.json())
             .then(data => {
                 setProductData(data.data.products)
-                console.log(data.data.products);
 
             })
             .catch(error => console.error("Error fetching:", error));
@@ -32,8 +31,6 @@ export default function Product() {
     useEffect(() => {
         fetchProducts();
     }, []);
-
-    console.log(ProductData);
 
     return (
         <>

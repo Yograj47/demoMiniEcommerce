@@ -29,7 +29,6 @@ export default function Login() {
         const isAdmin = data.email === "admin@demo.com" && data.password === "admin123";
 
         if (!isAdmin) {
-            console.log("Only admin");
             return;
         }
 

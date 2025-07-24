@@ -19,7 +19,6 @@ export default function ProductDetailPage() {
                 const res = await fetch(`https://demoserver-production-6df5.up.railway.app/products/${id}`);
                 const json = await res.json();
                 setProduct(json);
-                console.log(json);
 
             } catch (err) {
                 console.error("Failed to fetch product", err);
