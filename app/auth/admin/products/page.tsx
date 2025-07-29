@@ -1,8 +1,15 @@
 "use client"
 import { useEffect, useState } from "react"
 
+type Product = {
+    _id: string
+    name: string
+    price: number
+    image: string
+}
+
 export default function AdminProducts() {
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState<Product[]>([])
 
     useEffect(() => {
         fetch("https://demoserver-production-6df5.up.railway.app/products")

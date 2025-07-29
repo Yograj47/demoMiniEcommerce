@@ -5,6 +5,8 @@ import z from "zod"
 import { useCart } from "../cart"
 import { useRouter } from "next/navigation"
 
+
+
 const schema = z.object({
     name: z.string(),
     email: z.string().email(),
@@ -12,6 +14,15 @@ const schema = z.object({
 })
 
 type CheckDetail = z.infer<typeof schema>
+
+type CartItem = {
+    id: string
+    name: string
+    price: number
+    quantity: number
+    image: string
+}
+
 
 export default function Checkout() {
     const { clearCart } = useCart()
@@ -24,7 +35,7 @@ export default function Checkout() {
     const onSubmit: SubmitHandler<CheckDetail> = (data) => {
         // 1. Get cart items
         const cartItemsRaw = localStorage.getItem("cartItems");
-        const cartItems = cartItemsRaw ? JSON.parse(cartItemsRaw) : [];
+        const cartItems: CartItem[] = cartItemsRaw ? JSON.parse(cartItemsRaw) : [];
 
         // 2. Prepare new order
         const newOrder = {

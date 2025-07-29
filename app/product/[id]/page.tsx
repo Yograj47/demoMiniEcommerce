@@ -5,12 +5,25 @@ import Link from "next/link";
 import { useCart } from "@/app/cart";
 import { useParams } from "next/navigation";
 
+type Product = {
+    _id: string;
+    name: string;
+    price: number;
+    image?: string;
+    description?: string;
+    category?: string;
+    mainImage: {
+        url: string;
+    };
+};
+
+
 export default function ProductDetailPage() {
     const params = useParams();
     const id = typeof params.id === "string" ? params.id : "";
     const { addToCart } = useCart();
 
-    const [product, setProduct] = useState<any>(null);
+    const [product, setProduct] = useState<Product | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
