@@ -5,8 +5,6 @@ import z from "zod"
 import { useCart } from "../cart"
 import { useRouter } from "next/navigation"
 
-
-
 const schema = z.object({
     name: z.string(),
     email: z.string().email(),
@@ -41,7 +39,7 @@ export default function Checkout() {
         const newOrder = {
             userInfo: data,
             items: cartItems,
-            total: cartItems.reduce((sum: number, item: any) => sum + item.price * item.quantity, 0),
+            total: cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0),
             createdAt: new Date().toISOString()
         };
 
