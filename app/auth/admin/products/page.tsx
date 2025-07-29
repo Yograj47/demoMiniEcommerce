@@ -1,5 +1,7 @@
 "use client"
+import Image from "next/image"
 import { useEffect, useState } from "react"
+
 
 type Product = {
     _id: string
@@ -26,7 +28,7 @@ export default function AdminProducts() {
                         key={product._id}
                         className="border rounded-lg p-4 bg-white shadow-sm"
                     >
-                        <img
+                        <Image
                             src={product.image}
                             alt={product.name}
                             className="h-40 w-full object-cover mb-2 rounded"

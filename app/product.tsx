@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react"
 import { Card } from "@/components/ui/card"
 import Link from "next/link"
+import Image from "next/image";
 
 type ProductType = {
     _id: string;
@@ -49,7 +50,7 @@ export default function Product() {
                                     className="p-4 rounded-lg border-2 border-gray-500 hover:-translate-y-1 hover:shadow-xs hover:border-black transition duration-200"
                                 >
                                     <Link href={`/product/${product._id}`} className="block space-y-2">
-                                        <img
+                                        <Image
                                             src={product.mainImage?.url}
                                             alt={product.name}
                                             className="w-full h-48 object-cover rounded-md border-2 border-gray-200"

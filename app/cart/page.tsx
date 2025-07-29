@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useCart } from "../cart";
+import Image from "next/image";
 
 export default function CartPage() {
     const { cartItems, addToCart, removeFromCart, clearCart, getCartTotal } = useCart();
@@ -16,7 +17,7 @@ export default function CartPage() {
                     {cartItems.map((item) => (
                         <div className="flex p-1 justify-between items-center" key={item._id}>
                             <div className="flex gap-4 ">
-                                <img
+                                <Image
                                     src={item.image || "/placeholder.jpg"}
                                     alt={item.name}
                                     className="rounded-md h-24 w-24 object-cover border border-black"

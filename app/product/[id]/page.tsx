@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useCart } from "@/app/cart";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 
 type Product = {
     _id: string;
@@ -52,7 +53,7 @@ export default function ProductDetailPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 bg-white rounded-lg p-6">
                 <div>
-                    <img
+                    <Image
                         src={product.mainImage.url}
                         alt={product.name}
                         className="w-full rounded-lg border-2 border-solid border-gray-400  object-cover min-h-1/2 max-h-[500px]"
